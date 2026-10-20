@@ -1,0 +1,794 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Luyện từ Hán ngữ 5</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lesson rail on top, one worksheet table per lesson, sticky score bar */
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --fg:#1d2621; --muted:#5f6b64; --line:#dde3de;
+  --accent:#1f6f5c; --accent-soft:#e1efe9; --ok:#1d7a3e; --ok-bg:#dff3e5; --bad:#b4372b; --bad-bg:#fbe6e3;
+  --ff-body:"Be Vietnam Pro",system-ui,sans-serif; --ff-han:"Noto Serif SC","Songti SC",serif; --ff-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121815; --surface:#1a221e; --fg:#e4ebe6; --muted:#9aa8a0; --line:#2c3832;
+  --accent:#5cc2a6; --accent-soft:#1d3a32; --ok:#6fd38e; --ok-bg:#183424; --bad:#f08a7d; --bad-bg:#3a1f1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --surface:#1a221e; --fg:#e4ebe6; --muted:#9aa8a0; --line:#2c3832;
+  --accent:#5cc2a6; --accent-soft:#1d3a32; --ok:#6fd38e; --ok-bg:#183424; --bad:#f08a7d; --bad-bg:#3a1f1c; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--ff-body);font-size:15px;line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;padding-block:20px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px}
+h1{font-size:1.5rem;margin:0;text-wrap:balance;display:flex;align-items:baseline;gap:10px}
+h1 .han{font-family:var(--ff-han);color:var(--accent);font-size:1.3rem}
+.sub{color:var(--muted);font-size:.85rem;margin:2px 0 0}
+.lessons{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.lessons button{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:6px 10px;cursor:pointer;min-width:42px;font-variant-numeric:tabular-nums}
+.lessons button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+.lessons button .p{display:block;font-size:.65rem;opacity:.75}
+.lesson-head{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-radius:12px 12px 0 0;padding:12px 14px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.lt{font-weight:600}
+.lt .han{font-family:var(--ff-han);margin-left:6px}
+.score{font-variant-numeric:tabular-nums;font-size:.9rem;color:var(--muted)}
+.score b{color:var(--ok)} .score i{font-style:normal;color:var(--bad)}
+.bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;flex-basis:100%}
+.bar span{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+.tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tools button,.tools label{font:inherit;font-size:.8rem;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:7px;padding:5px 9px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.tools button:hover{border-color:var(--accent)}
+.tablebox{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-weight:600}
+td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+td.n{color:var(--muted);font-variant-numeric:tabular-nums;width:34px;text-align:right}
+td.vi{min-width:0;max-width:300px}
+td.inp{width:200px}
+td.inp input{width:100%;box-sizing:border-box;font-family:var(--ff-mono);font-size:.95rem;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+td.inp input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
+td.res{width:190px}
+.ans{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ans .hz{font-family:var(--ff-han);font-size:1.15rem;font-weight:700}
+.ans .py{font-family:var(--ff-mono);font-size:.85rem;color:var(--muted)}
+tr.ok td.inp input{background:var(--ok-bg);border-color:var(--ok)}
+tr.bad td.inp input{background:var(--bad-bg);border-color:var(--bad)}
+.tag{font-size:.72rem;font-weight:700;padding:2px 7px;border-radius:5px}
+.tag.ok{background:var(--ok-bg);color:var(--ok)} .tag.bad{background:var(--bad-bg);color:var(--bad)}
+.listen{border:0;background:none;color:var(--accent);cursor:pointer;font:inherit;font-size:.8rem;padding:2px 4px;text-decoration:underline}
+.listen:focus-visible,button:focus-visible,label:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.hint{color:var(--muted);font-size:.8rem;margin-top:12px;max-width:65ch}
+.hint code{font-family:var(--ff-mono);background:var(--accent-soft);padding:0 4px;border-radius:4px}
+@media (max-width:560px){td.vi{max-width:none}}
+@media (prefers-reduced-motion:reduce){.bar span{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Hán ngữ 5 <span class="han">汉语教程 第三册上</span></h1>
+      <p class="sub">Đọc nghĩa tiếng Việt, gõ phiên âm, nhấn Enter để chấm.</p>
+    </div>
+  </header>
+  <nav class="lessons" id="lessons" aria-label="Chọn bài"></nav>
+  <section>
+    <div class="lesson-head">
+      <div class="lt" id="lt"></div>
+      <div class="score" id="score"></div>
+      <div class="tools">
+        <label for="tones"><input type="checkbox" id="tones"> Bắt dấu thanh</label>
+        <button id="shuffle" type="button">Xáo trộn</button>
+        <button id="reveal" type="button">Hiện đáp án</button>
+        <button id="reset" type="button">Làm lại</button>
+      </div>
+      <div class="bar"><span id="bar"></span></div>
+    </div>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>#</th><th>Nghĩa tiếng Việt</th><th>Nhập phiên âm</th><th>Kết quả</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+  <p class="hint">Gõ được cả 3 kiểu: <code>bùliào</code>, <code>bu4liao4</code> hoặc không dấu <code>buliao</code> (khi tắt "Bắt dấu thanh"). Chữ <code>ü</code> gõ là <code>v</code> hoặc <code>u</code>. Gõ thẳng chữ Hán cũng được tính đúng. Nút "Nghe" dùng giọng đọc tiếng Trung của máy bạn.</p>
+</div>
+
+<script>
+const RAW = {
+1:["Khi rời xa nhà","离家的时候",`刻|kè|khắc (15 phút); khắc, chạm
+落|luò|rơi, rụng
+塞|sāi|nhét, nhồi
+愿望|yuàn wàng|nguyện vọng, mong ước
+终于|zhōng yú|cuối cùng, rốt cuộc
+实现|shí xiàn|thực hiện, đạt được
+联系|lián xì|liên lạc, liên hệ
+瞒|mán|giấu giếm
+独生女|dú shēng nǚ|con gái một
+多半|duō bàn|phần lớn; có lẽ
+因此|yīn cǐ|vì vậy, do đó
+果然|guǒ rán|quả nhiên
+实话|shí huà|lời nói thật
+对于|duì yú|đối với
+古老|gǔ lǎo|cổ xưa, cổ kính
+而|ér|mà, và, nhưng
+鸟|niǎo|chim
+独立|dú lì|độc lập
+自在|zì zài|thoải mái, tự tại
+考虑|kǎo lǜ|cân nhắc, suy nghĩ
+今后|jīn hòu|từ nay về sau
+事情|shì qing|sự việc, chuyện
+改变|gǎi biàn|thay đổi
+想法|xiǎng fǎ|suy nghĩ, ý kiến
+临|lín|sắp, lúc sắp
+拼命|pīn mìng|liều mạng, ra sức
+离别|lí bié|chia ly, chia tay
+望|wàng|nhìn xa, trông
+挥|huī|vẫy (tay)
+眼泪|yǎn lèi|nước mắt
+恋恋不舍|liàn liàn bù shě|lưu luyến không nỡ rời
+嘱咐|zhǔ fù|dặn dò
+放心|fàng xīn|yên tâm
+表达|biǎo dá|biểu đạt, bày tỏ
+想念|xiǎng niàn|nhớ (nhung)
+戒指|jiè zhi|nhẫn
+鼓励|gǔ lì|khuyến khích, động viên
+孤独|gū dú|cô đơn
+后悔|hòu huǐ|hối hận`],
+2:["Một lá thư","一封信",`健康|jiàn kāng|khỏe mạnh
+站|zhàn|đứng
+交|jiāo|kết (bạn), giao
+个子|gè zi|vóc dáng, chiều cao
+突然|tū rán|đột nhiên
+扶|fú|dìu, đỡ
+封|fēng|lá, bức (lượng từ cho thư)
+基本上|jī běn shang|về cơ bản
+基本|jī běn|cơ bản
+分别|fēn bié|chia tay; riêng từng cái
+来自|lái zì|đến từ
+课外|kè wài|ngoại khóa, ngoài giờ học
+关心|guān xīn|quan tâm
+团结|tuán jié|đoàn kết
+柔和|róu hé|mềm mại, dịu dàng
+缓慢|huǎn màn|chậm rãi
+优美|yōu měi|duyên dáng, đẹp đẽ
+舒展|shū zhǎn|duỗi ra, thư thái
+增强|zēng qiáng|tăng cường
+体质|tǐ zhì|thể chất
+预防|yù fáng|phòng ngừa
+疾病|jí bìng|bệnh tật
+作用|zuò yòng|tác dụng
+项|xiàng|hạng mục, môn
+毛笔|máo bǐ|bút lông
+书画|shū huà|thư họa
+竹子|zhú zi|cây trúc, tre
+诗|shī|thơ
+橱窗|chú chuāng|tủ kính trưng bày
+展出|zhǎn chū|trưng bày, triển lãm
+表示|biǎo shì|bày tỏ, biểu thị
+筷子|kuài zi|đũa
+好玩儿|hǎo wánr|vui, thú vị
+适应|shì yìng|thích nghi, thích ứng
+亚洲|Yà zhōu|châu Á
+非洲|Fēi zhōu|châu Phi
+干|gān|khô
+滑|huá|trơn, trượt
+堆|duī|đống; chất đống`],
+3:["Bốn mùa ở Bắc Kinh","北京的四季",`数|shǔ|đếm; kể đến
+轻松|qīng sōng|thoải mái, nhẹ nhõm
+船|chuán|thuyền
+部分|bù fen|bộ phận, phần
+地区|dì qū|khu vực, vùng
+脱|tuō|cởi
+冬衣|dōng yī|quần áo mùa đông
+春装|chūn zhuāng|quần áo mùa xuân
+姑娘|gū niang|cô gái
+湖|hú|hồ
+划船|huá chuán|chèo thuyền
+充满|chōng mǎn|tràn đầy
+游人|yóu rén|du khách
+显得|xiǎn de|tỏ ra, trông có vẻ
+火锅|huǒ guō|lẩu
+围|wéi|vây quanh
+向往|xiàng wǎng|khao khát, hướng về
+堆雪人|duī xuě rén|đắp người tuyết
+冻|dòng|đóng băng; lạnh cóng
+场|cháng|trận, cơn (lượng từ)
+收成|shōu cheng|thu hoạch, mùa màng
+鲜花|xiān huā|hoa tươi
+瓜|guā|dưa
+郊外|jiāo wài|ngoại ô
+美丽|měi lì|đẹp, xinh đẹp
+景色|jǐng sè|phong cảnh
+国庆节|Guó qìng jié|ngày Quốc khánh
+多么|duō me|biết bao, làm sao
+如今|rú jīn|ngày nay
+勤劳|qín láo|cần cù
+善良|shàn liáng|lương thiện, tốt bụng
+热爱|rè ài|yêu tha thiết
+友好|yǒu hǎo|hữu nghị, thân thiện
+亲爱|qīn ài|thân yêu
+愿|yuàn|mong, chúc
+平安|píng ān|bình an`],
+4:["Lý tưởng","理想",`支|zhī|cây, chiếc (lượng từ cho bút)
+地图|dì tú|bản đồ
+成功|chéng gōng|thành công
+挑|tiāo|chọn, lựa
+仔细|zǐ xì|kỹ lưỡng, cẩn thận
+理想|lǐ xiǎng|lý tưởng
+专业|zhuān yè|chuyên ngành
+当时|dāng shí|lúc đó
+赞成|zàn chéng|tán thành
+孩子|hái zi|đứa trẻ, con
+系|xì|khoa (đại học)
+著名|zhù míng|nổi tiếng
+旅途|lǚ tú|chặng đường, hành trình
+对面|duì miàn|đối diện
+好像|hǎo xiàng|hình như
+心事|xīn shì|tâm sự, nỗi lo trong lòng
+交谈|jiāo tán|trò chuyện
+所|suǒ|ngôi, cái (lượng từ cho trường học)
+简直|jiǎn zhí|quả thực, đúng là
+意义|yì yì|ý nghĩa
+风雨|fēng yǔ|mưa gió, gian nan
+彩虹|cǎi hóng|cầu vồng
+酸甜苦辣|suān tián kǔ là|chua ngọt đắng cay
+段|duàn|đoạn, khoảng
+梦|mèng|giấc mơ
+梦见|mèng jiàn|mơ thấy
+亲人|qīn rén|người thân
+女儿|nǚ ér|con gái
+失败|shī bài|thất bại
+失去|shī qù|mất đi
+信心|xìn xīn|lòng tin, tự tin
+选择|xuǎn zé|lựa chọn
+道路|dào lù|con đường
+人生|rén shēng|đời người
+退缩|tuì suō|chùn bước, lùi bước
+取得|qǔ dé|giành được, đạt được
+梦想|mèng xiǎng|ước mơ
+可笑|kě xiào|nực cười
+坚强|jiān qiáng|kiên cường
+付出|fù chū|bỏ ra, cống hiến
+艰苦|jiān kǔ|gian khổ
+链|liàn|dây chuyền, xích
+特产|tè chǎn|đặc sản`],
+5:["Để rồi tính sau","回头再说",`见面|jiàn miàn|gặp mặt
+拥挤|yōng jǐ|đông đúc, chen chúc
+热情|rè qíng|nhiệt tình
+回头|huí tóu|lát nữa, sau; quay đầu
+再说|zài shuō|để sau hãy nói; hơn nữa
+其实|qí shí|thực ra
+民航|mín háng|hàng không dân dụng
+地道|dì dao|chính gốc, chuẩn
+回答|huí dá|trả lời
+名片|míng piàn|danh thiếp
+几乎|jī hū|hầu như, gần như
+同时|tóng shí|đồng thời
+实在|shí zài|thực sự, quả thật
+太太|tài tai|bà, vợ
+之后|zhī hòu|sau khi, sau đó
+临了|lín liǎo|cuối cùng, sau rốt
+粗|cū|thô, to
+价钱|jià qian|giá cả
+付|fù|trả (tiền)
+平淡|píng dàn|bình thường, nhạt nhẽo
+至于|zhì yú|còn về, đến mức
+推辞|tuī cí|từ chối, khước từ
+温暖|wēn nuǎn|ấm áp
+等待|děng dài|chờ đợi
+地面|dì miàn|mặt đất
+熟悉|shú xī|quen thuộc
+左顾右盼|zuǒ gù yòu pàn|nhìn ngó xung quanh
+主动|zhǔ dòng|chủ động
+打招呼|dǎ zhāo hu|chào hỏi
+理|lǐ|để ý, đếm xỉa đến
+犹豫|yóu yù|do dự
+打交道|dǎ jiāo dao|giao thiệp, tiếp xúc
+顺路|shùn lù|tiện đường
+发动|fā dòng|khởi động, nổ máy
+招手|zhāo shǒu|vẫy tay
+没准儿|méi zhǔnr|không chừng, có lẽ
+愣|lèng|ngẩn ra, sững sờ
+至今|zhì jīn|cho đến nay
+日子|rì zi|cuộc sống; ngày tháng
+占|zhàn|chiếm
+奇怪|qí guài|kỳ lạ
+责任|zé rèn|trách nhiệm
+富强|fù qiáng|giàu mạnh
+未来|wèi lái|tương lai
+珍惜|zhēn xī|trân trọng`],
+6:["Ăn nho","吃葡萄",`熟|shú|chín; quen
+邻居|lín jū|hàng xóm
+表情|biǎo qíng|nét mặt, biểu cảm
+摘|zhāi|hái, ngắt
+有趣|yǒu qù|thú vị
+葡萄|pú tao|nho
+半死不活|bàn sǐ bù huó|dở sống dở chết
+不料|bù liào|không ngờ
+竟然|jìng rán|vậy mà, lại (không ngờ)
+许多|xǔ duō|rất nhiều
+叶子|yè zi|lá cây
+串|chuàn|chùm, chuỗi
+紫|zǐ|màu tím
+分享|fēn xiǎng|chia sẻ
+收获|shōu huò|thu hoạch; thành quả
+喜悦|xǐ yuè|vui sướng
+生意|shēng yi|việc buôn bán
+手指|shǒu zhǐ|ngón tay
+捏|niē|véo, nhón
+嘴|zuǐ|miệng
+注视|zhù shì|nhìn chăm chú
+低|dī|thấp; cúi (đầu)
+并|bìng|hoàn toàn (không), hề
+意外|yì wài|bất ngờ, ngoài ý muốn
+丈夫|zhàng fu|chồng
+警惕|jǐng tì|cảnh giác
+尴尬|gān gà|ngượng ngùng, khó xử
+毒药|dú yào|thuốc độc
+颗|kē|hạt, viên (lượng từ)
+传|chuán|truyền, lan truyền
+吵架|chǎo jià|cãi nhau
+隔壁|gé bì|nhà bên cạnh
+露|lù|lộ ra
+蹦|bèng|nhảy
+跳|tiào|nhảy
+真正|zhēn zhèng|thực sự, chân chính
+搭档|dā dàng|cộng sự, bạn diễn
+羽毛球|yǔ máo qiú|cầu lông
+现象|xiàn xiàng|hiện tượng
+埋怨|mán yuàn|oán trách, phàn nàn
+闹|nào|làm ầm ĩ, gây chuyện`],
+7:["Chuyện thành ngữ","成语故事",`差|chà|kém, thiếu
+国王|guó wáng|quốc vương, vua
+丢|diū|mất, đánh rơi
+副|fù|bộ, đôi (lượng từ)
+透|tòu|thấu, (cực) kỳ
+吹|chuī|thổi
+死|sǐ|chết
+成语|chéng yǔ|thành ngữ
+滥竽充数|làn yú chōng shù|lạm vu sung số (kẻ bất tài trà trộn)
+乐器|yuè qì|nhạc cụ
+合奏|hé zòu|hòa tấu
+一齐|yì qí|cùng lúc, đồng loạt
+入迷|rù mí|say mê
+吹牛|chuī niú|khoác lác, chém gió
+专|zhuān|chuyên
+根本|gēn běn|căn bản, hoàn toàn (không)
+乐队|yuè duì|ban nhạc
+混|hùn|trà trộn
+儿子|ér zi|con trai
+独奏|dú zòu|độc tấu
+吓|xià|dọa; sợ
+溜|liū|chuồn, lẻn
+自相矛盾|zì xiāng máo dùn|tự mâu thuẫn
+矛盾|máo dùn|mâu thuẫn
+从前|cóng qián|ngày xưa
+吸引|xī yǐn|thu hút
+顾客|gù kè|khách hàng
+叫卖|jiào mài|rao bán
+瞧|qiáo|xem, nhìn
+举|jǔ|giơ lên
+坚固|jiān gù|kiên cố, chắc chắn
+锋利|fēng lì|sắc bén
+刺|cì|đâm, chọc
+喊|hǎn|hét, gọi to
+无比|wú bǐ|không gì sánh bằng
+不管|bù guǎn|bất kể, dù
+其中|qí zhōng|trong đó
+既然|jì rán|đã... thì
+刻舟求剑|kè zhōu qiú jiàn|khắc thuyền tìm gươm
+剑|jiàn|kiếm, gươm
+记号|jì hao|ký hiệu, dấu
+岸|àn|bờ`],
+8:["Chuyện tình yêu","恋爱故事",`恋爱|liàn ài|yêu đương
+聪明|cōng ming|thông minh
+大方|dà fang|hào phóng; tự nhiên
+开朗|kāi lǎng|cởi mở, vui vẻ
+任何|rèn hé|bất kỳ
+秘密|mì mì|bí mật
+心爱|xīn ài|yêu quý
+滋味|zī wèi|mùi vị, cảm giác
+自然|zì rán|tự nhiên; đương nhiên
+尽量|jǐn liàng|cố gắng hết mức
+无聊|wú liáo|buồn chán, vô vị
+敲|qiāo|gõ
+捧|pěng|bưng, nâng (bằng hai tay)
+束|shù|bó (lượng từ)
+亲切|qīn qiè|thân thiết, thân mật
+问候|wèn hòu|hỏi thăm
+微笑|wēi xiào|mỉm cười
+加|jiā|thêm, cộng
+整个|zhěng gè|toàn bộ, cả
+开心|kāi xīn|vui vẻ
+不知不觉|bù zhī bù jué|bất giác, lúc nào không hay
+电子信箱|diàn zǐ xìn xiāng|hộp thư điện tử
+普通|pǔ tōng|bình thường, phổ thông
+立刻|lì kè|lập tức
+淡|dàn|nhạt
+忧愁|yōu chóu|buồn rầu, lo âu
+一连|yì lián|liên tiếp
+翻来覆去|fān lái fù qù|trằn trọc; lặp đi lặp lại
+爱恋|ài liàn|yêu thương, quyến luyến
+失恋|shī liàn|thất tình
+默默|mò mò|lặng lẽ
+外交|wài jiāo|ngoại giao
+消息|xiāo xi|tin tức
+公开|gōng kāi|công khai
+甩|shuǎi|vung; đá (người yêu)
+料到|liào dào|đoán trước
+家伙|jiā huo|gã, thằng cha
+仍然|réng rán|vẫn
+余辉|yú huī|ánh chiều tà
+各自|gè zì|mỗi người, riêng từng người
+随和|suí he|dễ tính, hòa nhã
+让步|ràng bù|nhượng bộ
+迈步|mài bù|cất bước`],
+9:["Cảm giác hạnh phúc","幸福的感觉",`离婚|lí hūn|ly hôn
+算|suàn|tính, coi như
+装|zhuāng|đựng, lắp; giả vờ
+感激|gǎn jī|cảm kích, biết ơn
+富翁|fù wēng|phú ông, người giàu
+到底|dào dǐ|rốt cuộc
+权力|quán lì|quyền lực
+拥有|yōng yǒu|có, sở hữu
+完全|wán quán|hoàn toàn
+个人|gè rén|cá nhân
+行为|xíng wéi|hành vi
+永远|yǒng yuǎn|mãi mãi
+统一|tǒng yī|thống nhất
+标准|biāo zhǔn|tiêu chuẩn
+得到|dé dào|nhận được
+只要|zhǐ yào|chỉ cần
+穷|qióng|nghèo
+好心|hǎo xīn|tốt bụng, lòng tốt
+回忆|huí yì|hồi tưởng, nhớ lại
+当初|dāng chū|lúc đầu, ban đầu
+回报|huí bào|báo đáp, đền đáp
+美好|měi hǎo|tốt đẹp
+条件|tiáo jiàn|điều kiện
+收入|shōu rù|thu nhập
+脸|liǎn|mặt
+笑容|xiào róng|nụ cười
+抚养|fǔ yǎng|nuôi dưỡng
+话题|huà tí|chủ đề câu chuyện
+捐|juān|quyên góp
+工程|gōng chéng|công trình
+背|bēi|đeo, cõng
+书包|shū bāo|cặp sách
+贫穷|pín qióng|nghèo khó
+祖国|zǔ guó|tổ quốc
+拔苗助长|bá miáo zhù zhǎng|nhổ mạ cho lớn (dục tốc bất đạt)
+性急|xìng jí|nóng vội
+田|tián|ruộng`],
+10:["Nâng cao bản thân","提高自己",`提高|tí gāo|nâng cao
+经营|jīng yíng|kinh doanh
+拍|pāi|vỗ; chụp
+贸易|mào yì|thương mại, mậu dịch
+愤怒|fèn nù|phẫn nộ
+头儿|tóur|sếp, người đứng đầu
+改天|gǎi tiān|hôm khác
+弄|nòng|làm
+技巧|jì qiǎo|kỹ xảo, kỹ năng
+反问|fǎn wèn|hỏi lại
+君子|jūn zǐ|quân tử
+报仇|bào chóu|báo thù
+文件|wén jiàn|văn kiện, tài liệu
+熟练|shú liàn|thành thạo
+操作|cāo zuò|thao tác, vận hành
+程序|chéng xù|trình tự; chương trình
+设计|shè jì|thiết kế
+甚至|shèn zhì|thậm chí
+修理|xiū lǐ|sửa chữa
+打印机|dǎ yìn jī|máy in
+复印机|fù yìn jī|máy photocopy
+毛病|máo bìng|hỏng hóc; tật xấu
+免费|miǎn fèi|miễn phí
+出气|chū qì|trút giận
+听从|tīng cóng|nghe theo
+从此|cóng cǐ|từ đó
+刻苦|kè kǔ|chịu khó, khắc khổ
+留|liú|ở lại, giữ lại
+加班|jiā bān|tăng ca
+偶然|ǒu rán|ngẫu nhiên
+刮目相看|guā mù xiāng kàn|nhìn với con mắt khác
+担当|dān dāng|đảm đương
+重任|zhòng rèn|trọng trách
+薪|xīn|lương
+重视|zhòng shì|coi trọng
+能力|néng lì|năng lực
+足|zú|đủ, đầy đủ
+态度|tài du|thái độ
+犯|fàn|phạm (lỗi)
+抱歉|bào qiàn|xin lỗi, áy náy
+生存|shēng cún|sinh tồn
+颤抖|chàn dǒu|run rẩy
+公平|gōng píng|công bằng
+同情|tóng qíng|đồng cảm, thông cảm
+振作|zhèn zuò|phấn chấn, vực dậy
+即使|jí shǐ|cho dù, ngay cả khi`],
+11:["Tôi đã nhìn thấy đĩa bay","我看见了飞碟",`飞碟|fēi dié|đĩa bay
+县|xiàn|huyện
+森林|sēn lín|rừng
+草原|cǎo yuán|thảo nguyên
+味道|wèi dao|mùi vị
+鲜美|xiān měi|tươi ngon
+抓|zhuā|bốc, nắm
+羊肉|yáng ròu|thịt cừu
+仙境|xiān jìng|tiên cảnh
+激动|jī dòng|xúc động, kích động
+太阳|tài yáng|mặt trời
+作家|zuò jiā|nhà văn
+急促|jí cù|dồn dập, gấp gáp
+连忙|lián máng|vội vàng
+用力|yòng lì|dùng sức
+意识|yì shí|ý thức, nhận ra
+寻常|xún cháng|bình thường
+不约而同|bù yuē ér tóng|không hẹn mà gặp
+天空|tiān kōng|bầu trời
+只见|zhǐ jiàn|chỉ thấy
+巨大|jù dà|to lớn, khổng lồ
+快速|kuài sù|nhanh chóng
+自转|zì zhuàn|tự quay
+悬|xuán|treo, lơ lửng
+橙红|chéng hóng|đỏ cam
+光亮|guāng liàng|sáng bóng
+耀眼|yào yǎn|chói mắt
+明显|míng xiǎn|rõ ràng
+涡流|wō liú|dòng xoáy
+发亮|fā liàng|phát sáng
+神奇|shén qí|thần kỳ
+无奈|wú nài|bất lực, đành chịu
+傻瓜|shǎ guā|đồ ngốc
+明白|míng bai|hiểu, rõ ràng
+难得|nán dé|hiếm có
+朝|cháo|hướng về
+直|zhí|thẳng
+冲|chōng|xông, lao tới
+降落|jiàng luò|hạ cánh
+闪|shǎn|lóe, chớp
+星星|xīng xing|ngôi sao
+碟子|dié zi|cái đĩa
+速度|sù dù|tốc độ
+渐渐|jiàn jiàn|dần dần
+恢复|huī fù|khôi phục
+彼此|bǐ cǐ|lẫn nhau
+痛快|tòng kuai|thoải mái, sảng khoái
+入睡|rù shuì|ngủ thiếp đi
+宇宙|yǔ zhòu|vũ trụ
+地球|dì qiú|trái đất
+存在|cún zài|tồn tại
+智能|zhì néng|trí tuệ, thông minh
+生物|shēng wù|sinh vật
+无数|wú shù|vô số
+新疆|Xīn jiāng|Tân Cương
+团团转|tuán tuán zhuàn|cuống cuồng xoay quanh
+干脆|gān cuì|dứt khoát
+顺手|shùn shǒu|tiện tay
+字迹|zì jì|nét chữ`],
+12:["Làm người tốt thật khó","好人难当",`收|shōu|nhận; thu
+双|shuāng|đôi
+道|dào|đường; lượng từ
+得意|dé yì|đắc ý
+尽管|jǐn guǎn|mặc dù; cứ việc
+诚心诚意|chéng xīn chéng yì|thành tâm thành ý
+难免|nán miǎn|khó tránh khỏi
+吃力|chī lì|vất vả, tốn sức
+讨好|tǎo hǎo|lấy lòng
+趴|pā|nằm sấp; bò
+心疼|xīn téng|xót, thương
+安慰|ān wèi|an ủi
+瞪|dèng|trừng mắt
+吼|hǒu|gầm, quát
+走运|zǒu yùn|gặp may
+指|zhǐ|chỉ
+赔|péi|đền, bồi thường
+晴|qíng|nắng, quang đãng
+阴|yīn|âm u
+被子|bèi zi|chăn
+双职工|shuāng zhí gōng|vợ chồng cùng đi làm
+单身|dān shēn|độc thân
+免得|miǎn de|để khỏi, kẻo
+以为|yǐ wéi|cứ tưởng
+道歉|dào qiàn|xin lỗi
+逛|guàng|dạo chơi
+林荫道|lín yīn dào|đường rợp bóng cây
+好不|hǎo bù|thật là, rất (cảm thán)
+拉链|lā liàn|khóa kéo
+横|héng|ngang
+推|tuī|đẩy
+连声|lián shēng|liên tục nói
+道谢|dào xiè|cảm ơn
+气筒|qì tǒng|cái bơm
+压|yā|đè, ép
+更加|gèng jiā|càng thêm
+起劲|qǐ jìn|hăng hái
+车胎|chē tāi|lốp xe
+爆|bào|nổ
+漫天|màn tiān|khắp trời
+抱怨|bào yuàn|than phiền
+清晰|qīng xī|rõ ràng
+甜蜜|tián mì|ngọt ngào
+感伤|gǎn shāng|buồn thương
+欣喜|xīn xǐ|vui mừng
+沉默|chén mò|im lặng
+魅力|mèi lì|sức hút, sức quyến rũ
+冒险|mào xiǎn|mạo hiểm
+冲动|chōng dòng|bốc đồng
+镇静|zhèn jìng|bình tĩnh
+胡思乱想|hú sī luàn xiǎng|nghĩ lung tung
+信任|xìn rèn|tin tưởng
+怀疑|huái yí|nghi ngờ`],
+13:["Chuyện của dân thường","百姓话题",`本|běn|vốn, gốc; quyển
+家务|jiā wù|việc nhà
+兼|jiān|kiêm
+起|qǐ|đứng dậy; bắt đầu
+地位|dì wèi|địa vị
+百姓|bǎi xìng|dân chúng
+老百姓|lǎo bǎi xìng|người dân thường
+开办|kāi bàn|mở, sáng lập
+专栏|zhuān lán|chuyên mục
+讲述|jiǎng shù|kể lại, thuật lại
+反映|fǎn yìng|phản ánh
+投稿|tóu gǎo|gửi bài
+姓名|xìng míng|họ tên
+性别|xìng bié|giới tính
+职业|zhí yè|nghề nghiệp
+老大|lǎo dà|con cả
+种地|zhòng dì|làm ruộng
+副业|fù yè|nghề phụ
+高中|gāo zhōng|cấp ba, THPT
+一时|yì shí|nhất thời
+照顾|zhào gù|chăm sóc
+总之|zǒng zhī|tóm lại
+一辈子|yí bèi zi|cả đời
+总得|zǒng děi|kiểu gì cũng phải
+自立|zì lì|tự lập
+编辑|biān jí|biên tập (viên)
+单亲|dān qīn|đơn thân (bố/mẹ)
+为难|wéi nán|khó xử; làm khó
+哪怕|nǎ pà|cho dù
+出事|chū shì|xảy ra chuyện
+家教|jiā jiào|gia sư; gia giáo
+初中|chū zhōng|cấp hai, THCS
+好在|hǎo zài|may mà
+听话|tīng huà|nghe lời
+内|nèi|trong, bên trong
+懂事|dǒng shì|hiểu chuyện
+歌手|gē shǒu|ca sĩ
+最初|zuì chū|ban đầu
+中央|zhōng yāng|trung ương
+去世|qù shì|qua đời
+安定|ān dìng|ổn định
+反而|fǎn ér|ngược lại
+伤心|shāng xīn|đau lòng
+身边|shēn biān|bên cạnh
+成就|chéng jiù|thành tựu
+没脸|méi liǎn|không còn mặt mũi
+同事|tóng shì|đồng nghiệp
+孝|xiào|hiếu thảo
+之|zhī|của (văn viết)
+地理|dì lǐ|địa lý
+探险|tàn xiǎn|thám hiểm
+游记|yóu jì|du ký
+游历|yóu lì|du lịch, chu du
+四方|sì fāng|bốn phương`]
+};
+
+const LESSONS = Object.entries(RAW).map(([n,[vi,zh,txt]])=>({
+  n:+n, vi, zh,
+  words: txt.trim().split("\n").map(l=>{const [hz,py,me]=l.split("|");return {hz,py,me};})
+}));
+
+// --- pinyin normalisation ---
+const MARKS = {"ā":"a1","á":"a2","ǎ":"a3","à":"a4","ē":"e1","é":"e2","ě":"e3","è":"e4","ī":"i1","í":"i2","ǐ":"i3","ì":"i4","ō":"o1","ó":"o2","ǒ":"o3","ò":"o4","ū":"u1","ú":"u2","ǔ":"u3","ù":"u4","ǖ":"v1","ǘ":"v2","ǚ":"v3","ǜ":"v4","ü":"v0"};
+function parse(s){
+  s = s.normalize("NFC").toLowerCase().replace(/u:/g,"v");
+  let letters="", tones="";
+  for(const ch of s){
+    if(MARKS[ch]){ const [b,t]=MARKS[ch]; letters+=b; if(t!=="0") tones+=t; }
+    else if(/[1-4]/.test(ch)) tones+=ch;
+    else if(/[a-z]/.test(ch)) letters+=ch;
+  }
+  return {letters:letters.replace(/v/g,"u"), tones};
+}
+function check(input, w, strict){
+  const raw = input.trim();
+  if(!raw) return null;
+  if(raw.replace(/\s/g,"")===w.hz) return true;
+  const a=parse(raw), b=parse(w.py);
+  if(a.letters!==b.letters) return false;
+  return strict ? a.tones===b.tones : true;
+}
+
+// --- state ---
+const KEY="hn5-progress-v1";
+let store={}; try{store=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+let cur = (()=>{const h=+location.hash.replace("#bai",""); return h>=1&&h<=13?h:(store._last||1)})();
+let order=null;
+const $=id=>document.getElementById(id);
+const strictEl=$("tones"); strictEl.checked=!!store._strict;
+
+function lessonState(n){ return store[n]||(store[n]={}); }
+
+function renderNav(){
+  $("lessons").innerHTML = LESSONS.map(L=>{
+    const st=lessonState(L.n); const ok=L.words.filter(w=>st[w.hz]?.ok).length;
+    return `<button type="button" data-n="${L.n}" aria-pressed="${L.n===cur}">Bài ${L.n}<span class="p">${ok}/${L.words.length}</span></button>`;
+  }).join("");
+}
+function speak(t){
+  try{ const u=new SpeechSynthesisUtterance(t); u.lang="zh-CN"; u.rate=.85; speechSynthesis.cancel(); speechSynthesis.speak(u);}catch(e){}
+}
+function rowHTML(w,i){
+  return `<tr data-hz="${w.hz}"><td class="n">${i+1}</td><td class="vi">${w.me}</td>
+  <td class="inp"><input id="in-${cur}-${w.hz}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Phiên âm của: ${w.me}"></td>
+  <td class="res"></td></tr>`;
+}
+function paintRow(tr, w, res, showAns){
+  tr.classList.remove("ok","bad");
+  const cell=tr.querySelector(".res");
+  if(res===true){ tr.classList.add("ok"); cell.innerHTML=`<div class="ans"><span class="tag ok">Đúng</span><span class="hz">${w.hz}</span><button class="listen" type="button">Nghe</button></div>`; }
+  else if(res===false){ tr.classList.add("bad"); cell.innerHTML=`<div class="ans"><span class="tag bad">Sai</span><span class="hz">${w.hz}</span><span class="py">${w.py}</span><button class="listen" type="button">Nghe</button></div>`; }
+  else if(showAns){ cell.innerHTML=`<div class="ans"><span class="hz">${w.hz}</span><span class="py">${w.py}</span><button class="listen" type="button">Nghe</button></div>`; }
+  else cell.innerHTML="";
+}
+function renderLesson(){
+  const L=LESSONS[cur-1]; const st=lessonState(cur);
+  $("lt").innerHTML=`Bài ${L.n}: ${L.vi}<span class="han">${L.zh}</span>`;
+  const words = order || L.words;
+  $("rows").innerHTML = words.map(rowHTML).join("");
+  [...$("rows").rows].forEach(tr=>{
+    const w=L.words.find(x=>x.hz===tr.dataset.hz); const s=st[w.hz];
+    if(s){ tr.querySelector("input").value=s.v; paintRow(tr,w,s.ok); }
+  });
+  updateScore(); renderNav();
+}
+function updateScore(){
+  const L=LESSONS[cur-1], st=lessonState(cur);
+  const ok=L.words.filter(w=>st[w.hz]?.ok).length, bad=L.words.filter(w=>st[w.hz]&&!st[w.hz].ok).length;
+  $("score").innerHTML=`<b>${ok} đúng</b> · <i>${bad} sai</i> · ${L.words.length-ok-bad} chưa làm / ${L.words.length}`;
+  $("bar").style.width=(ok/L.words.length*100)+"%";
+  const b=$("lessons").querySelector(`[data-n="${cur}"] .p`); if(b) b.textContent=`${ok}/${L.words.length}`;
+}
+function grade(tr){
+  const L=LESSONS[cur-1]; const w=L.words.find(x=>x.hz===tr.dataset.hz);
+  const v=tr.querySelector("input").value; const r=check(v,w,strictEl.checked);
+  const st=lessonState(cur);
+  if(r===null){ delete st[w.hz]; } else { st[w.hz]={v:v.trim(),ok:r}; }
+  paintRow(tr,w,r); save(); updateScore();
+  if(r===true) speak(w.hz);
+}
+
+$("rows").addEventListener("keydown",e=>{
+  if(e.key!=="Enter"||e.target.tagName!=="INPUT"||e.isComposing) return;
+  e.preventDefault(); const tr=e.target.closest("tr"); grade(tr);
+  const next=tr.nextElementSibling; if(next) next.querySelector("input").focus();
+});
+$("rows").addEventListener("change",e=>{ if(e.target.tagName==="INPUT") grade(e.target.closest("tr")); });
+$("rows").addEventListener("click",e=>{
+  if(e.target.classList.contains("listen")) speak(e.target.closest("tr").dataset.hz);
+});
+$("lessons").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  cur=+b.dataset.n; order=null; store._last=cur; save(); renderLesson();
+});
+strictEl.addEventListener("change",()=>{ store._strict=strictEl.checked; save();
+  const L=LESSONS[cur-1], st=lessonState(cur);
+  for(const w of L.words){ if(st[w.hz]) st[w.hz].ok=check(st[w.hz].v,w,strictEl.checked); }
+  save(); renderLesson();
+});
+$("shuffle").addEventListener("click",()=>{
+  const a=[...LESSONS[cur-1].words]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  order=a; renderLesson();
+});
+$("reveal").addEventListener("click",()=>{
+  const L=LESSONS[cur-1], st=lessonState(cur);
+  [...$("rows").rows].forEach(tr=>{const w=L.words.find(x=>x.hz===tr.dataset.hz); if(!st[w.hz]) paintRow(tr,w,null,true);});
+});
+$("reset").addEventListener("click",()=>{ store[cur]={}; save(); order=null; renderLesson(); });
+
+renderLesson();
+</script>
+
+</body></html>
